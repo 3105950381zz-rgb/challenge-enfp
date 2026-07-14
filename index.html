@@ -7,10 +7,10 @@
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0f0f0f;color:#f0ece4;min-height:100vh;overflow-x:hidden}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#1a1218;color:#f0ece4;min-height:100vh;overflow-x:hidden}
 
 /* Animated bg */
-.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 30% 20%,rgba(254,202,87,.08),transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(224,122,95,.04),transparent 50%),#0f0f0f}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 30% 20%,rgba(254,202,87,.08),transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(224,122,95,.04),transparent 50%),#1a1218}
 .particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
 .p{position:absolute;width:2px;height:2px;background:rgba(254,202,87,.2);border-radius:50%;animation:drift linear infinite}
 @keyframes drift{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) scale(1);opacity:0}}
@@ -130,20 +130,7 @@ const DATA={
   color:'#feca57'
 };
 
-const STAGES=[
-  {scene:'TA 盯着屏幕很久，终于回了消息。但只有三个字。',line:'没关系。',safe:1,dmg:1,death:'你追问TA"就这？"TA再也没回。你已被ENFP移出了对话框。'},
-  {scene:'消息越来越短。以前TA会讲很多细节，现在只剩几个字。',line:'嗯，知道了。',safe:2,dmg:2,death:'你打电话质问TA为什么这么冷淡。TA挂了电话，你再也打不通了。'},
-  {scene:'TA没有指责你，只是说自己最近很累。语气里没有情绪。',line:'我最近很累。',safe:3,dmg:2,death:'你说"我比你更累"。TA沉默了很久，然后说"那就算了吧。"'},
-  {scene:'你刷到TA发了动态，但TA没有回你消息。那些生活已经不再先告诉你了。',line:'没什么好说的。',safe:2,dmg:3,death:'你评论TA的动态质问TA。TA删掉了评论，也删掉了你。'},
-  {scene:'TA开始对你用敬语。客气、周到、无懈可击——像对待一个陌生人。',line:'谢谢你，真的。',safe:3,dmg:3,death:'你说"你至于吗"。TA说"至于。"然后你再也没见过TA。'},
-  {scene:'经典死亡区。很多人以为这句话还有机会，但其实是最温柔的告别。',line:'你是个很好的人。',safe:1,dmg:4,death:'你说"那你为什么不爱我？"TA说"因为我累了。"对话结束。'},
-  {scene:'没有崩溃，没有拉扯，只是安静地把门关上了。',line:'我们就到这里吧。',safe:2,dmg:4,death:'你疯狂发消息打电话。TA换了号码。你彻底找不到TA了。'},
-  {scene:'你把想说的话打了又删，最后只说了一句体面的话。',line:'你值得更好的。',safe:3,dmg:5,death:'你说"不，你就是最好的。"TA说"那为什么你让我这么难过？"你无言以对。'},
-  {scene:'TA的态度变得坚定，不再留任何商量余地。',line:'别再联系我了。',safe:2,dmg:5,death:'你说"你给我个机会"。TA说"我给过你很多次了。"然后拉黑了你。'},
-  {scene:'你从别人口中听说TA过得很好。那根线啪地断了。',line:'我已经放下了。',safe:3,dmg:5,death:'你去TA家楼下等TA。TA报了警。你连朋友都做不了了。'},
-  {scene:'共同朋友告诉你，TA说过不想再提到你。',line:'别打听我的生活了。',safe:2,dmg:5,death:'你让朋友帮忙传话。TA说"再提他连朋友都没得做。"你失去了TA，也失去了共同朋友。'},
-  {scene:'最后一扇没有上锁的门。这是你最后的机会。',line:'还记得我们第一次见面吗？',safe:1,dmg:5,death:'你说"不记得了。"TA笑了笑，关上了最后一扇门。永远。'}
-];
+const STAGES=[{scene:'TA盯着屏幕很久才回了消息但只有三个字',line:'嗯好的。',safe:1,dmg:1,death:'你追问TA导致TA彻底消失'},{scene:'消息越来越短以前TA会讲很多细节现在只剩几个字',line:'嗯知道了。',safe:2,dmg:2,death:'你逼TA表态TA选择了离开'},{scene:'TA没有指责你只是说自己最近很累',line:'我最近很累。',safe:3,dmg:2,death:'你说我比你更累TA说算了吧'},{scene:'你刷到TA发了动态但TA没有回你消息',line:'没什么好说的。',safe:4,dmg:3,death:'你公开指责TA让TA难堪'},{scene:'TA开始对你用敬语客气周到无懈可击',line:'谢谢你真的。',safe:1,dmg:3,death:'你说你至于吗TA说至于'},{scene:'经典死亡区很多人以为这句话还有机会',line:'你是个很好的人。',safe:2,dmg:4,death:'你说那我算什么TA沉默了'},{scene:'没有崩溃没有拉扯只是安静地把门关上了',line:'我们到这里吧。',safe:3,dmg:4,death:'你疯狂联系TA被拉黑了'},{scene:'你把想说的话打了又删最后只说了一句体面的话',line:'你值得更好的。',safe:4,dmg:5,death:'你说那就算了TA说好的'},{scene:'TA的态度变得坚定不再留任何商量余地',line:'别再联系我了。',safe:1,dmg:5,death:'你说是你不对但已经晚了'},{scene:'你从别人口中听说TA过得很好那根线啪地断了',line:'我已经放下了。',safe:2,dmg:5,death:'你去TA家楼下等TA报了警'},{scene:'共同朋友告诉你TA说过不想再提到你',line:'别打听我生活了。',safe:3,dmg:5,death:'你让朋友传话TA说朋友都没得做'},{scene:'最后一扇没有上锁的门这是你最后的机会',line:'还记得第一次见面吗？',safe:4,dmg:5,death:'你说那我也忘了TA说太好了'}];
 
 let hp=10,maxHp=10,cur=0,sc=0,over=false;
 const A=document.getElementById('app');
@@ -206,7 +193,7 @@ function cap(){
   if(typeof html2canvas==='undefined'){alert('请手动截图保存');return}
   const el=document.querySelector('.card');
   if(!el)return;
-  html2canvas(el,{backgroundColor:'#0f0f0f',scale:2,useCORS:true,logging:false}).then(c=>{
+  html2canvas(el,{backgroundColor:'#1a1218',scale:2,useCORS:true,logging:false}).then(c=>{
     const link=document.createElement('a');
     link.download='ENFP_通关.png';
     link.href=c.toDataURL('image/png');
