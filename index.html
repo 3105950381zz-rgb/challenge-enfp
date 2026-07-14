@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>挽回ENFP挑战</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#fdf8f0;--card:#fffcf7;--text:#2c2418;--dim:#b0a090;--accent:#e07a5f;--accent2:#c26a50;--gold:#d4af37;--radius:16px;--shadow:0 2px 20px rgba(0,0,0,.06)}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:40px}
+.hidden{display:none!important}
+
+/* Header */
+.header{background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;padding:36px 20px 28px;text-align:center;position:relative}
+.header h1{font-size:28px;font-weight:800;letter-spacing:2px}
+.header p{font-size:14px;opacity:.85;margin-top:6px}
+.header .sub{font-size:12px;opacity:.6;margin-top:4px}
+
+/* Container */
+.container{max-width:480px;margin:0 auto;padding:16px}
+
+/* Card */
+.card{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:14px}
+
+/* Home */
+.emoji-big{font-size:80px;text-align:center;margin-bottom:12px}
+.home-title{font-size:24px;font-weight:800;text-align:center;color:var(--accent2)}
+.home-desc{font-size:14px;color:var(--dim);text-align:center;margin:8px 0 20px;line-height:1.7}
+.btn-start{width:100%;padding:16px;border:none;border-radius:12px;background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;font-size:17px;font-weight:700;letter-spacing:3px;cursor:pointer;font-family:inherit;box-shadow:0 4px 16px rgba(224,122,95,.3);transition:all .2s}
+.btn-start:active{transform:scale(.97)}
+
+/* Quiz */
+.progress{height:4px;border-radius:2px;background:#f0e8dc;margin-bottom:20px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,#f4a261,#e07a5f);border-radius:2px;transition:width .3s}
+.q-num{font-size:12px;color:var(--dim);margin-bottom:6px}
+.q-title{font-size:18px;font-weight:700;line-height:1.6;margin-bottom:20px}
+.options{display:flex;flex-direction:column;gap:10px}
+.opt{padding:14px 16px;border-radius:12px;border:2px solid #f0e8dc;background:var(--card);font-size:15px;cursor:pointer;transition:all .15s;text-align:left;font-family:inherit;color:var(--text)}
+.opt:active{border-color:var(--accent);background:#fdf5f0;transform:scale(.98)}
+
+/* Result */
+.result{text-align:center}
+.result-emoji{font-size:72px;margin-bottom:8px}
+.result-title{font-size:22px;font-weight:800;color:var(--accent2);margin-bottom:4px}
+.result-tag{display:inline-block;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;margin:8px 0 14px}
+.result-desc{font-size:14px;color:#555;line-height:1.8;text-align:left;margin-bottom:14px;padding:16px;background:#fdf5f0;border-radius:12px}
+.result-score{font-size:13px;color:var(--dim);margin-bottom:14px}
+.result-bar{height:8px;border-radius:4px;background:#f0e8dc;overflow:hidden;margin-bottom:6px}
+.result-bar-inner{height:100%;border-radius:4px;transition:width 1s ease}
+.btn-group{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.btn-group button{width:100%;padding:14px;border-radius:12px;border:none;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.btn-group button:active{transform:scale(.97)}
+.btn-share{background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;box-shadow:0 4px 16px rgba(224,122,95,.25)}
+.btn-restart{background:transparent;color:var(--dim);border:1px solid #e0d8cc!important}
+
+/* Brand */
+.brand{text-align:center;padding:16px;margin-top:8px;border-top:1px solid #f0e8dc;font-size:12px;color:var(--dim)}
+.brand strong{color:var(--accent2)}
+.footer{font-size:10px;color:#ccc;text-align:center;margin-top:20px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>💫 挽回ENFP挑战</h1>
+  <p>你能俘获ENFP的心吗？</p>
+  <div class="sub">ENFP是热情自由的追梦者——和他们在一起像坐过山车 🎢</div>
+</div>
+
+<div class="container" id="app">
+  <div class="card" id="pageHome">
+    <div class="emoji-big">🦋</div>
+    <div class="home-title">ENFP·竞选者</div>
+    <div class="home-desc">
+      ENFP热情、自由、充满想象力，<br>
+      但他们的心不是那么容易留住的。<br><br>
+      8道情景题，测测你<br>
+      <strong>能不能挽回一个ENFP的心</strong>
+    </div>
+    <button class="btn-start" onclick="start()">🚀 开始挑战</button>
+  </div>
+
+  <div id="pageQuiz" class="hidden">
+    <div class="card">
+      <div class="progress"><div class="progress-bar" id="progBar" style="width:0%"></div></div>
+      <div class="q-num" id="qNum"></div>
+      <div class="q-title" id="qTitle"></div>
+      <div class="options" id="qOpts"></div>
+    </div>
+  </div>
+
+  <div id="pageResult" class="hidden">
+    <div class="card result">
+      <div class="result-emoji" id="rEmoji"></div>
+      <div class="result-title" id="rTitle"></div>
+      <div class="result-tag" id="rTag"></div>
+      <div class="result-desc" id="rDesc"></div>
+      <div style="margin-top:12px">
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--dim)">
+          <span>惨了 💔</span><span>稳了 🎯</span>
+        </div>
+        <div class="result-bar"><div class="result-bar-inner" id="rBar" style="width:0%"></div></div>
+        <div class="result-score" id="rScore"></div>
+      </div>
+      <div class="btn-group">
+        <button class="btn-share" onclick="capture()">📸 晒出你的成绩</button>
+        <button class="btn-restart" onclick="start()">🔄 再测一次</button>
+      </div>
+    </div>
+    <div class="brand">想自己搭这种测试？扫码找 <strong>灵客星球</strong></div>
+    <div class="footer">仅供娱乐 · 不构成人格建议</div>
+  </div>
+</div>
+
+<script>
+const qs=[
+  {t:'你和ENFP吵架后，TA几天没联系你。你会？',
+   o:['主动找TA，热情破冰','给TA空间，等TA自己来找','发个搞笑视频试探一下','直接问"你到底还喜不喜欢我"'],
+   s:[3,1,2,0]},
+  {t:'ENFP兴致勃勃跟你分享一个新想法，但你觉得很离谱。你会？',
+   o:['先夸TA有创意，再委婉说想法','直接说"这不太现实吧"','跟着一起嗨，"走！干！"','沉默，不知道怎么接'],
+   s:[2,0,3,1]},
+  {t:'周末到了，ENFP说"我们出去玩吧！"你其实想宅家。你会？',
+   o:['打起精神陪TA出去','说累了想休息，让TA自己玩','提议一个折中方案','勉强出去但全程没精神'],
+   s:[2,0,3,1]},
+  {t:'ENFP对你忽冷忽热，你感觉TA在疏远你。你第一反应是？',
+   o:['直接问TA怎么了','反思自己是不是做错了什么','也用冷对待回应','找TA朋友打听情况'],
+   s:[3,2,0,1]},
+  {t:'ENFP说"我觉得我们之间缺少新鲜感"。你会？',
+   o:['策划一个惊喜约会','认真和TA谈未来的规划','问TA想要什么样的新鲜感','觉得TA在无理取闹'],
+   s:[3,2,1,0]},
+  {t:'你的ENFP对象和TA的异性朋友走得很近。你会？',
+   o:['相信TA，给TA自由','委婉表达你的不安','偷偷观察他们的互动','直接要求TA保持距离'],
+   s:[3,2,1,0]},
+  {t:'ENFP突然说"我想一个人去旅行"。你会？',
+   o:['支持TA，"去吧！记得想我"','问清楚原因，是不是感情出问题了','要求一起去','不高兴但说"随便你"'],
+   s:[3,1,0,2]},
+  {t:'你觉得留住ENFP的心，最重要的是什么？',
+   o:['给TA自由和空间','给TA持续的新鲜感','给TA深刻的情感连接','给TA实际的照顾和支持'],
+   s:[2,3,2,1]}
+];
+
+const rs=[
+  {min:0,max:8,emoji:'💔',title:'出局了',tag:'❌ 挽回失败',color:'#e74c3c',
+   desc:'你和ENFP可能真的不太合适。ENFP需要的是一个能跟上他们节奏、理解他们天马行空想法的人。如果你总是泼冷水、限制自由、或者情绪不稳定，ENFP会很快下头。建议你先好好反思自己是否真的了解TA。',
+   bar:'#e74c3c'},
+  {min:9,max:14,emoji:'😅',title:'有点悬',tag:'⚠️ 需要努力',color:'#f39c12',
+   desc:'你了解ENFP的一些特质，但在关键时候还是容易踩雷。ENFP最怕被束缚和被否定。如果你能给TA更多空间、更少评判，同时保持热情和新鲜感，挽回还是有机会的。建议：少讲道理，多给情绪价值。',
+   bar:'#f39c12'},
+  {min:15,max:20,emoji:'😊',title:'有希望',tag:'✅ 挽回几率大',color:'#2ecc71',
+   desc:'你挺懂ENFP的！你懂得给TA自由，也懂得在TA需要的时候给TA热烈回应。ENFP虽然看起来飘忽不定，但其实心里很清楚谁是真的懂TA的人。继续保持你的真诚和热情，ENFP会回到你身边的。',
+   bar:'#2ecc71'},
+  {min:21,max:24,emoji:'🎯',title:'稳了！',tag:'🌟 天选之人',color:'#e07a5f',
+   desc:'你就是ENFP的天菜！你完美掌握了和ENFP相处的秘诀：给TA自由但不冷漠，陪TA疯但不失控，懂TA的情绪但不被情绪绑架。ENFP一旦遇到这样的人，根本舍不得放手。你们的故事还长着呢 💕',
+   bar:'#e07a5f'}
+];
+
+let cur=0,ans=[],total=0;
+
+function start(){cur=0;ans=[];total=0;show('pageHome',0);show('pageQuiz',1);show('pageResult',0);renderQ()}
+function show(id,v){document.getElementById(id).classList.toggle('hidden',!v)}
+
+function renderQ(){
+  const q=qs[cur];
+  document.getElementById('progBar').style.width=((cur)/qs.length*100)+'%';
+  document.getElementById('qNum').textContent=`第 ${cur+1}/${qs.length} 题`;
+  document.getElementById('qTitle').textContent=q.t;
+  document.getElementById('qOpts').innerHTML=q.o.map((t,i)=>`<button class="opt" onclick="pick(${i})">${t}</button>`).join('');
+}
+
+function pick(i){
+  ans.push(i);total+=qs[cur].s[i];
+  if(cur<qs.length-1){cur++;renderQ()}
+  else showResult();
+}
+
+function showResult(){
+  show('pageHome',0);show('pageQuiz',0);show('pageResult',1);
+  document.getElementById('progBar').style.width='100%';
+  const r=rs.find(r=>total>=r.min&&total<=r.max)||rs[0];
+  document.getElementById('rEmoji').textContent=r.emoji;
+  document.getElementById('rTitle').textContent=r.title;
+  document.getElementById('rTag').textContent=r.tag;
+  document.getElementById('rTag').style.background=r.color+'20';
+  document.getElementById('rTag').style.color=r.color;
+  document.getElementById('rDesc').textContent=r.desc;
+  document.getElementById('rScore').textContent=`得分：${total}/${qs.length*3}`;
+  setTimeout(()=>{
+    document.getElementById('rBar').style.width=((total/(qs.length*3))*100)+'%';
+    document.getElementById('rBar').style.background=r.bar;
+  },100);
+}
+
+function capture(){
+  const el=document.querySelector('.result');
+  if(!el)return;
+  const c=document.createElement('canvas');
+  c.width=400;c.height=700;
+  const ctx=c.getContext('2d');
+  ctx.fillStyle='#fdf8f0';ctx.fillRect(0,0,400,700);
+  ctx.fillStyle='#2c2418';
+  ctx.font='bold 28px sans-serif';ctx.textAlign='center';
+  ctx.fillText('💫 挽回ENFP挑战',200,50);
+  ctx.font='48px sans-serif';ctx.fillText(document.getElementById('rEmoji').textContent,200,130);
+  ctx.font='bold 24px sans-serif';ctx.fillStyle='#e07a5f';ctx.fillText(document.getElementById('rTitle').textContent,200,190);
+  ctx.font='16px sans-serif';ctx.fillStyle='#555';
+  ctx.fillText(document.getElementById('rTag').textContent,200,220);
+  ctx.font='14px sans-serif';ctx.fillStyle='#999';ctx.fillText('得分：'+total+'/'+(qs.length*3),200,250);
+  const desc=document.getElementById('rDesc').textContent;
+  ctx.font='13px sans-serif';ctx.fillStyle='#555';ctx.textAlign='left';
+  const wrap=(t,x,y,w)=>{let l='',h=18;for(let c of t){let n=l+c;if(ctx.measureText(n).width>w){ctx.fillText(l,x,y);y+=h;l=c}else l=n}if(l)ctx.fillText(l,x,y)};
+  wrap(desc,30,280,340);
+  ctx.textAlign='center';ctx.fillStyle='#b0a090';ctx.font='12px sans-serif';ctx.fillText('灵客星球 · 想自己搭这种测试？扫码聊',200,650);
+  const link=document.createElement('a');
+  link.download='ENFP挑战结果.png';
+  link.href=c.toDataURL('image/png');
+  link.click();
+}
+</script>
+</body>
+</html>
