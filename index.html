@@ -2,220 +2,176 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>挽回ENFP挑战</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>挽回 ENFP 挑战</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#fdf8f0;--card:#fffcf7;--text:#2c2418;--dim:#b0a090;--accent:#e07a5f;--accent2:#c26a50;--gold:#d4af37;--radius:16px;--shadow:0 2px 20px rgba(0,0,0,.06)}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:40px}
-.hidden{display:none!important}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#faf6ef;color:#14110f;-webkit-font-smoothing:antialiased;min-height:100vh;padding-bottom:40px}
 
-/* Header */
-.header{background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;padding:36px 20px 28px;text-align:center;position:relative}
-.header h1{font-size:28px;font-weight:800;letter-spacing:2px}
-.header p{font-size:14px;opacity:.85;margin-top:6px}
-.header .sub{font-size:12px;opacity:.6;margin-top:4px}
+.page-bg{position:fixed;inset:0;z-index:-1;background:#faf6ef;background-image:radial-gradient(circle at 20% 12%,rgba(255,207,111,0.25),transparent 26rem),radial-gradient(circle at 82% 4%,rgba(255,180,50,0.15),transparent 22rem)}
+.app{width:min(100%,520px);min-height:100vh;margin:0 auto;padding:max(12px,env(safe-area-inset-top)) 16px max(18px,env(safe-area-inset-bottom));position:relative}
 
-/* Container */
-.container{max-width:480px;margin:0 auto;padding:16px}
+.topbar{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#9a8a78;padding:4px 0 8px}
+.topbar span{background:rgba(255,255,255,.8);border:1px solid rgba(20,17,15,.1);border-radius:999px;padding:4px 10px}
 
-/* Card */
-.card{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:14px}
+.hero{background:linear-gradient(145deg,#fffcf7,#fdf3e0);border:1px solid rgba(20,17,15,.12);border-radius:12px;min-height:180px;margin:8px 0 16px;position:relative;overflow:hidden;box-shadow:0 18px 42px rgba(63,35,18,.08)}
+.hero-inner{position:absolute;inset:16px;border:1px dashed rgba(20,17,15,.15);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.hero-emoji{font-size:48px;margin-bottom:8px}
+.hero-title{font-size:20px;font-weight:700;color:#c27a1a}
+.hero-sub{font-size:13px;color:#6a5a48;margin-top:4px;text-align:center;line-height:1.6;padding:0 10px}
+.hero-intro{font-size:12px;color:#9a8a78;margin-top:6px;text-align:center;line-height:1.7;padding:0 10px}
+.hero-stats{display:flex;gap:16px;margin-top:10px;font-size:11px;color:#9a8a78}
+.hero-stats span{padding:2px 10px;background:rgba(255,255,255,.6);border-radius:20px}
 
-/* Home */
-.emoji-big{font-size:80px;text-align:center;margin-bottom:12px}
-.home-title{font-size:24px;font-weight:800;text-align:center;color:var(--accent2)}
-.home-desc{font-size:14px;color:var(--dim);text-align:center;margin:8px 0 20px;line-height:1.7}
-.btn-start{width:100%;padding:16px;border:none;border-radius:12px;background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;font-size:17px;font-weight:700;letter-spacing:3px;cursor:pointer;font-family:inherit;box-shadow:0 4px 16px rgba(224,122,95,.3);transition:all .2s}
-.btn-start:active{transform:scale(.97)}
+.card{background:#fffcf7;border:1px solid rgba(20,17,15,.08);border-radius:12px;padding:20px;margin-bottom:10px;box-shadow:0 4px 16px rgba(63,35,18,.04)}
+.lv-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.lv-badge{background:#ffcf6f20;color:#c27a1a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px}
+.lv-death{font-size:11px;color:#c0392b}
+.lv-scene{font-size:14px;color:#6a5a48;line-height:1.7;margin-bottom:14px;padding:12px;background:rgba(255,207,111,.06);border-radius:8px;border-left:3px solid #ffcf6f}
+.lv-line{font-size:16px;font-weight:600;color:#14110f;margin-bottom:16px;padding:10px 14px;background:#faf6ef;border-radius:8px;text-align:center}
 
-/* Quiz */
-.progress{height:4px;border-radius:2px;background:#f0e8dc;margin-bottom:20px;overflow:hidden}
-.progress-bar{height:100%;background:linear-gradient(90deg,#f4a261,#e07a5f);border-radius:2px;transition:width .3s}
-.q-num{font-size:12px;color:var(--dim);margin-bottom:6px}
-.q-title{font-size:18px;font-weight:700;line-height:1.6;margin-bottom:20px}
-.options{display:flex;flex-direction:column;gap:10px}
-.opt{padding:14px 16px;border-radius:12px;border:2px solid #f0e8dc;background:var(--card);font-size:15px;cursor:pointer;transition:all .15s;text-align:left;font-family:inherit;color:var(--text)}
-.opt:active{border-color:var(--accent);background:#fdf5f0;transform:scale(.98)}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{width:100%;padding:13px 14px;border:1px solid rgba(20,17,15,.08);border-radius:8px;background:#fffcf7;font-size:13px;color:#14110f;cursor:pointer;text-align:left;font-family:inherit;transition:all .15s;line-height:1.5}
+.opt:active{transform:scale(.97);border-color:#f4a261}
+.opt .lb{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;color:#fff;font-size:11px;font-weight:700;margin-right:10px}
+.opt .lb1{background:#f4a261}.opt .lb2{background:#e07a5f}.opt .lb3{background:#d4af37}.opt .lb4{background:#8ecae6}
+.opt.go{text-align:center;padding:16px;font-weight:700;font-size:15px;border-color:#f4a261}
 
-/* Result */
-.result{text-align:center}
-.result-emoji{font-size:72px;margin-bottom:8px}
-.result-title{font-size:22px;font-weight:800;color:var(--accent2);margin-bottom:4px}
-.result-tag{display:inline-block;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;margin:8px 0 14px}
-.result-desc{font-size:14px;color:#555;line-height:1.8;text-align:left;margin-bottom:14px;padding:16px;background:#fdf5f0;border-radius:12px}
-.result-score{font-size:13px;color:var(--dim);margin-bottom:14px}
-.result-bar{height:8px;border-radius:4px;background:#f0e8dc;overflow:hidden;margin-bottom:6px}
-.result-bar-inner{height:100%;border-radius:4px;transition:width 1s ease}
-.btn-group{margin-top:16px;display:flex;flex-direction:column;gap:10px}
-.btn-group button{width:100%;padding:14px;border-radius:12px;border:none;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
-.btn-group button:active{transform:scale(.97)}
-.btn-share{background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;box-shadow:0 4px 16px rgba(224,122,95,.25)}
-.btn-restart{background:transparent;color:var(--dim);border:1px solid #e0d8cc!important}
+.r-emoji{font-size:56px;margin-bottom:4px;text-align:center}
+.r-title{font-size:22px;font-weight:800;color:#c27a1a;text-align:center}
+.r-sub{font-size:13px;color:#6a5a48;text-align:center;margin-top:4px}
+.r-badge{display:inline-block;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;margin:10px auto;text-align:center;width:auto}
+.r-desc{font-size:13px;color:#555;line-height:1.8;padding:16px;background:rgba(255,207,111,.06);border-radius:12px;margin-bottom:12px}
+.sbar{height:6px;border-radius:3px;background:rgba(20,17,15,.06);overflow:hidden;margin:6px 0}
+.sfill{height:100%;border-radius:3px;transition:width .8s ease}
 
-/* Brand */
-.brand{text-align:center;padding:16px;margin-top:8px;border-top:1px solid #f0e8dc;font-size:12px;color:var(--dim)}
-.brand strong{color:var(--accent2)}
-.footer{font-size:10px;color:#ccc;text-align:center;margin-top:20px;line-height:1.6}
+.acts{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.acts button{width:100%;padding:14px;border-radius:10px;border:none;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.acts button:active{transform:scale(.97)}
+.btn1{background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;box-shadow:0 4px 14px rgba(224,122,95,.2)}
+.btn2{background:transparent;color:#9a8a78;border:1px solid rgba(20,17,15,.08)!important}
+
+.brand{display:flex;align-items:center;gap:12px;padding:14px;margin-top:8px;border-radius:10px;background:rgba(255,255,255,.5);border:1px solid rgba(20,17,15,.06)}
+.brand img{width:48px;height:auto;border-radius:6px;flex-shrink:0}
+.brand .bn{font-size:13px;font-weight:700;color:#14110f}
+.brand .bs{font-size:11px;color:#9a8a78;margin-top:2px}
+.ft{font-size:10px;color:#c0b0a0;text-align:center;margin-top:16px;line-height:1.6}
 </style>
 </head>
 <body>
-
-<div class="header">
-  <h1>💫 挽回ENFP挑战</h1>
-  <p>你能俘获ENFP的心吗？</p>
-  <div class="sub">ENFP是热情自由的追梦者——和他们在一起像坐过山车 🎢</div>
-</div>
-
-<div class="container" id="app">
-  <div class="card" id="pageHome">
-    <div class="emoji-big">🦋</div>
-    <div class="home-title">ENFP·竞选者</div>
-    <div class="home-desc">
-      ENFP热情、自由、充满想象力，<br>
-      但他们的心不是那么容易留住的。<br><br>
-      8道情景题，测测你<br>
-      <strong>能不能挽回一个ENFP的心</strong>
-    </div>
-    <button class="btn-start" onclick="start()">🚀 开始挑战</button>
-  </div>
-
-  <div id="pageQuiz" class="hidden">
-    <div class="card">
-      <div class="progress"><div class="progress-bar" id="progBar" style="width:0%"></div></div>
-      <div class="q-num" id="qNum"></div>
-      <div class="q-title" id="qTitle"></div>
-      <div class="options" id="qOpts"></div>
-    </div>
-  </div>
-
-  <div id="pageResult" class="hidden">
-    <div class="card result">
-      <div class="result-emoji" id="rEmoji"></div>
-      <div class="result-title" id="rTitle"></div>
-      <div class="result-tag" id="rTag"></div>
-      <div class="result-desc" id="rDesc"></div>
-      <div style="margin-top:12px">
-        <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--dim)">
-          <span>惨了 💔</span><span>稳了 🎯</span>
-        </div>
-        <div class="result-bar"><div class="result-bar-inner" id="rBar" style="width:0%"></div></div>
-        <div class="result-score" id="rScore"></div>
-      </div>
-      <div class="btn-group">
-        <button class="btn-share" onclick="capture()">📸 晒出你的成绩</button>
-        <button class="btn-restart" onclick="start()">🔄 再测一次</button>
-      </div>
-    </div>
-    <div class="brand">想自己搭这种测试？扫码找 <strong>灵客星球</strong></div>
-    <div class="footer">仅供娱乐 · 不构成人格建议</div>
-  </div>
-</div>
+<div class="page-bg"></div>
+<div class="app" id="app"></div>
 
 <script>
-const qs=[
-  {t:'你和ENFP吵架后，TA几天没联系你。你会？',
-   o:['主动找TA，热情破冰','给TA空间，等TA自己来找','发个搞笑视频试探一下','直接问"你到底还喜不喜欢我"'],
-   s:[3,1,2,0]},
-  {t:'ENFP兴致勃勃跟你分享一个新想法，但你觉得很离谱。你会？',
-   o:['先夸TA有创意，再委婉说想法','直接说"这不太现实吧"','跟着一起嗨，"走！干！"','沉默，不知道怎么接'],
-   s:[2,0,3,1]},
-  {t:'周末到了，ENFP说"我们出去玩吧！"你其实想宅家。你会？',
-   o:['打起精神陪TA出去','说累了想休息，让TA自己玩','提议一个折中方案','勉强出去但全程没精神'],
-   s:[2,0,3,1]},
-  {t:'ENFP对你忽冷忽热，你感觉TA在疏远你。你第一反应是？',
-   o:['直接问TA怎么了','反思自己是不是做错了什么','也用冷对待回应','找TA朋友打听情况'],
-   s:[3,2,0,1]},
-  {t:'ENFP说"我觉得我们之间缺少新鲜感"。你会？',
-   o:['策划一个惊喜约会','认真和TA谈未来的规划','问TA想要什么样的新鲜感','觉得TA在无理取闹'],
-   s:[3,2,1,0]},
-  {t:'你的ENFP对象和TA的异性朋友走得很近。你会？',
-   o:['相信TA，给TA自由','委婉表达你的不安','偷偷观察他们的互动','直接要求TA保持距离'],
-   s:[3,2,1,0]},
-  {t:'ENFP突然说"我想一个人去旅行"。你会？',
-   o:['支持TA，"去吧！记得想我"','问清楚原因，是不是感情出问题了','要求一起去','不高兴但说"随便你"'],
-   s:[3,1,0,2]},
-  {t:'你觉得留住ENFP的心，最重要的是什么？',
-   o:['给TA自由和空间','给TA持续的新鲜感','给TA深刻的情感连接','给TA实际的照顾和支持'],
-   s:[2,3,2,1]}
+const D={emoji:'🦋',title:'挽回 ENFP 挑战',subtitle:'你能挽回那个热烈但已经失望的人吗？',intro:'ENFP 曾经很亮，但热情不是无限电池。被困住、被敷衍、被降温，都会让 TA 突然转身。',accent:'#ffcf6f',danger:'热烈逃逸',passRate:'0.9%',averageDeath:'第3关',globalBase:389520};
+
+const STAGES=[
+  {t:'没关系',s:'TA 盯着屏幕很久，只回了三个字。',l:'没关系。',d:21},
+  {t:'开始变冷',s:'消息越来越短。以前会讲细节，现在只剩表情和句号。',l:'嗯。知道了。',d:63},
+  {t:'我最近很累',s:'TA 没有指责你，只是把自己往后收了一点。',l:'我最近很累。',d:58},
+  {t:'不再分享',s:'你刷到 TA 的动态，才知道那些生活已经不再先告诉你。',l:'也没什么好说的。',d:66},
+  {t:'开始礼貌',s:'TA 的语气突然变得周到、客气、无懈可击。',l:'谢谢你，真的。',d:72},
+  {t:'你是个很好的人',s:'死亡高发区。很多人在这里误以为还有机会。',l:'你是个很好的人。',d:85},
+  {t:'我们就到这里吧',s:'没有崩溃，没有拉扯，只是把门轻轻关上。',l:'我们就到这里吧。',d:91},
+  {t:'你值得更好的',s:'你输入又删除。删到最后，只剩一句看似体面的话。',l:'你值得更好的。',d:94}
 ];
 
-const rs=[
-  {min:0,max:8,emoji:'💔',title:'出局了',tag:'❌ 挽回失败',color:'#e74c3c',
-   desc:'你和ENFP可能真的不太合适。ENFP需要的是一个能跟上他们节奏、理解他们天马行空想法的人。如果你总是泼冷水、限制自由、或者情绪不稳定，ENFP会很快下头。建议你先好好反思自己是否真的了解TA。',
-   bar:'#e74c3c'},
-  {min:9,max:14,emoji:'😅',title:'有点悬',tag:'⚠️ 需要努力',color:'#f39c12',
-   desc:'你了解ENFP的一些特质，但在关键时候还是容易踩雷。ENFP最怕被束缚和被否定。如果你能给TA更多空间、更少评判，同时保持热情和新鲜感，挽回还是有机会的。建议：少讲道理，多给情绪价值。',
-   bar:'#f39c12'},
-  {min:15,max:20,emoji:'😊',title:'有希望',tag:'✅ 挽回几率大',color:'#2ecc71',
-   desc:'你挺懂ENFP的！你懂得给TA自由，也懂得在TA需要的时候给TA热烈回应。ENFP虽然看起来飘忽不定，但其实心里很清楚谁是真的懂TA的人。继续保持你的真诚和热情，ENFP会回到你身边的。',
-   bar:'#2ecc71'},
-  {min:21,max:24,emoji:'🎯',title:'稳了！',tag:'🌟 天选之人',color:'#e07a5f',
-   desc:'你就是ENFP的天菜！你完美掌握了和ENFP相处的秘诀：给TA自由但不冷漠，陪TA疯但不失控，懂TA的情绪但不被情绪绑架。ENFP一旦遇到这样的人，根本舍不得放手。你们的故事还长着呢 💕',
-   bar:'#e07a5f'}
+const OPTS=[
+  [{x:'a',t:'先让TA冷静几天，等TA主动找你',s:'f'},{x:'b',t:'每天发一条日常，让TA知道你在但不过界',s:'s'},{x:'c',t:'直接打电话问清楚到底怎么了',s:'f'},{x:'d',t:'写一段小作文道歉加表白',s:'f'}],
+  [{x:'a',t:'照常分享一件小事，但不追问',s:'s'},{x:'b',t:'问TA是不是不爱了，想要句准话',s:'f'},{x:'c',t:'也减少回复，让TA感受下被冷落',s:'f'},{x:'d',t:'约TA出来当面聊聊',s:'s'}],
+  [{x:'a',t:'问TA最近是不是压力很大，说陪TA',s:'s'},{x:'b',t:'说我也很累，但问题得说清楚',s:'f'},{x:'c',t:'想办法逗TA开心，转移注意力',s:'s'},{x:'d',t:'不打扰，等TA自己恢复',s:'f'}],
+  [{x:'a',t:'假装没看到，但默默关注TA动态',s:'f'},{x:'b',t:'在TA动态下正常互动，不刻意',s:'s'},{x:'c',t:'问TA最近是不是不想理我了',s:'f'},{x:'d',t:'也发精彩生活，让TA看到你很好',s:'f'}],
+  [{x:'a',t:'直接问"你对我是不是有意见"',s:'f'},{x:'b',t:'用同样客气的方式回应TA',s:'f'},{x:'c',t:'用关心的方式戳破这层客气',s:'s'},{x:'d',t:'反思自己最近是不是忽略了TA',s:'s'}],
+  [{x:'a',t:'说我也觉得自己不够好但我会改',s:'s'},{x:'b',t:'说你别这样，我哪里不好你说',s:'f'},{x:'c',t:'说也许吧，但我还是不想放弃',s:'s'},{x:'d',t:'沉默，慢慢退出TA的生活',s:'f'}],
+  [{x:'a',t:'好的，那我等你',s:'s'},{x:'b',t:'为什么？我做错什么了你说清楚',s:'f'},{x:'c',t:'我不同意，我们重新开始好不好',s:'f'},{x:'d',t:'那我走了，你要好好的',s:'s'}],
+  [{x:'a',t:'也许吧。但谢谢你，真的。',s:'s'},{x:'b',t:'不，你值得更好的，但那个人是我',s:'f'},{x:'c',t:'哭着说我对你真的很重要',s:'f'},{x:'d',t:'我听见了。但我会继续往前走。',s:'s'}]
 ];
 
-let cur=0,ans=[],total=0;
+const R=[{e:'🎯',ti:'完美通关',su:'你是万里挑一的那个',ta:'🌟 天选之人',mi:6,c:'#f4a261',
+  de:'你完全读懂了ENFP。你知道什么时候该靠近，什么时候该给空间。ENFP 的热情不是无限电池，但你让他们觉得——你是值得充电的那个人。不是因为你多会说话，而是因为你真的看见了TA。'},
+  {e:'😊',ti:'表现不错',su:'你已经超过大多数人了',ta:'✅ 高分通关',mi:4,c:'#8ecae6',
+  de:'你本能地做出了很多正确的选择。虽然偶尔踩雷，但你懂得ENFP 最在意什么——被看见、被理解、被温柔对待。只要再少一点自我怀疑，ENFP 会回头的。'},
+  {e:'😅',ti:'有点危险',su:'大部分人和你一样',ta:'⚠️ 止步中段',mi:2,c:'#f39c12',
+  de:'你在一些关键选择上踩了ENFP 的雷。ENFP 最怕的不是吵架，是被敷衍、被冷落、被当成理所当然。你还需学会在TA沉默时不要逼问，在TA撤退时不要追击。'},
+  {e:'💔',ti:'挑战失败',su:'ENFP 已经转身',ta:'❌ 需再努力',mi:0,c:'#e74c3c',
+  de:'ENFP 的热情熄灭了。TA 不需要完美的伴侣，需要的是一个在TA发光时不遮挡、在TA暗淡时不离开的人。建议你好好了解ENFP，下次再来挑战。'}];
 
-function start(){cur=0;ans=[];total=0;show('pageHome',0);show('pageQuiz',1);show('pageResult',0);renderQ()}
-function show(id,v){document.getElementById(id).classList.toggle('hidden',!v)}
+let cur=0,sc=0,sa=0,fa=0;
+const A=document.getElementById('app');
 
-function renderQ(){
-  const q=qs[cur];
-  document.getElementById('progBar').style.width=((cur)/qs.length*100)+'%';
-  document.getElementById('qNum').textContent=`第 ${cur+1}/${qs.length} 题`;
-  document.getElementById('qTitle').textContent=q.t;
-  document.getElementById('qOpts').innerHTML=q.o.map((t,i)=>`<button class="opt" onclick="pick(${i})">${t}</button>`).join('');
+function home(){
+  A.innerHTML=`<div class="topbar"><span>挽回挑战</span><span>${D.danger}</span></div>
+    <div class="hero"><div class="hero-inner">
+      <div class="hero-emoji">${D.emoji}</div>
+      <div class="hero-title">${D.title}</div>
+      <div class="hero-sub">${D.subtitle}</div>
+      <div class="hero-intro">${D.intro}</div>
+      <div class="hero-stats"><span>🔥 通关率 ${D.passRate}</span><span>💀 平均止步 ${D.averageDeath}</span></div>
+    </div></div>
+    <button class="opt go" onclick="go()"><span class="lb lb1">▶</span> 开始挑战</button>
+    <div style="margin-top:12px">${brand()}</div>
+    <div class="ft">共 ${STAGES.length} 关 · 每关 4 个选择</div>`;
+}
+
+function go(){
+  cur=0;sc=0;sa=0;fa=0;A.innerHTML=level();
+}
+
+function level(){
+  if(cur>=STAGES.length)return res();
+  const s=STAGES[cur],o=OPTS[cur]||[],lbs=['lb1','lb2','lb3','lb4'];
+  return `<div class="topbar"><span>挽回 ENFP · 第${cur+1}/${STAGES.length}关</span><span>💀 失败率${s.d}%</span></div>
+    <div class="card">
+      <div class="lv-hd"><span class="lv-badge">⚠️ 关卡${cur+1}：${s.t}</span><span class="lv-death">💀 ${s.d}%止步</span></div>
+      <div class="lv-scene">${s.s}</div>
+      <div class="lv-line">"${s.l}"</div>
+      <div class="opts">${o.map((p,i)=>`<button class="opt" onclick="pick(${i})"><span class="lb ${lbs[i]}">${'ABCD'[i]}</span>${p.t}</button>`).join('')}</div>
+    </div>`;
 }
 
 function pick(i){
-  ans.push(i);total+=qs[cur].s[i];
-  if(cur<qs.length-1){cur++;renderQ()}
-  else showResult();
+  const o=OPTS[cur][i];
+  if(o.s==='s'){sc+=3;sa++}else sc+=1,fa++;
+  cur++;A.innerHTML=cur>=STAGES.length?res():level();
 }
 
-function showResult(){
-  show('pageHome',0);show('pageQuiz',0);show('pageResult',1);
-  document.getElementById('progBar').style.width='100%';
-  const r=rs.find(r=>total>=r.min&&total<=r.max)||rs[0];
-  document.getElementById('rEmoji').textContent=r.emoji;
-  document.getElementById('rTitle').textContent=r.title;
-  document.getElementById('rTag').textContent=r.tag;
-  document.getElementById('rTag').style.background=r.color+'20';
-  document.getElementById('rTag').style.color=r.color;
-  document.getElementById('rDesc').textContent=r.desc;
-  document.getElementById('rScore').textContent=`得分：${total}/${qs.length*3}`;
-  setTimeout(()=>{
-    document.getElementById('rBar').style.width=((total/(qs.length*3))*100)+'%';
-    document.getElementById('rBar').style.background=r.bar;
-  },100);
+function res(){
+  const r=R.find(x=>sa>=x.mi)||R[R.length-1];
+  return `<div class="topbar"><span>挑战完成</span><span>得分${sc}/${STAGES.length*3}</span></div>
+    <div class="card" style="text-align:center">
+      <div class="r-emoji">${r.e}</div>
+      <div class="r-title">${r.ti}</div>
+      <div class="r-sub">${r.su}</div>
+      <div class="r-badge" style="background:${r.c}20;color:${r.c}">${r.ta}</div>
+    </div>
+    <div class="card">
+      <div class="r-desc">${r.de}</div>
+      <div style="font-size:12px;color:#9a8a78;margin-bottom:4px">安全选择比例</div>
+      <div class="sbar"><div class="sfill" style="width:${(sa/STAGES.length)*100}%;background:${r.c}"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#9a8a78;margin-top:12px">
+        <span>🌍 ${(D.globalBase/10000).toFixed(1)}万人挑战过</span>
+        <span>${sa}✅ ${fa}💀</span>
+      </div>
+    </div>
+    <div class="acts">
+      <button class="btn1" onclick="cap()">📸 截图发朋友圈</button>
+      <button class="btn2" onclick="home()">🔄 重新挑战</button>
+    </div>
+    ${brand()}
+    <div class="ft">仅供娱乐 · 不构成人格建议<br>想自己搭这种测试？扫码找灵客星球</div>`;
 }
 
-function capture(){
-  const el=document.querySelector('.result');
-  if(!el)return;
-  const c=document.createElement('canvas');
-  c.width=400;c.height=700;
-  const ctx=c.getContext('2d');
-  ctx.fillStyle='#fdf8f0';ctx.fillRect(0,0,400,700);
-  ctx.fillStyle='#2c2418';
-  ctx.font='bold 28px sans-serif';ctx.textAlign='center';
-  ctx.fillText('💫 挽回ENFP挑战',200,50);
-  ctx.font='48px sans-serif';ctx.fillText(document.getElementById('rEmoji').textContent,200,130);
-  ctx.font='bold 24px sans-serif';ctx.fillStyle='#e07a5f';ctx.fillText(document.getElementById('rTitle').textContent,200,190);
-  ctx.font='16px sans-serif';ctx.fillStyle='#555';
-  ctx.fillText(document.getElementById('rTag').textContent,200,220);
-  ctx.font='14px sans-serif';ctx.fillStyle='#999';ctx.fillText('得分：'+total+'/'+(qs.length*3),200,250);
-  const desc=document.getElementById('rDesc').textContent;
-  ctx.font='13px sans-serif';ctx.fillStyle='#555';ctx.textAlign='left';
-  const wrap=(t,x,y,w)=>{let l='',h=18;for(let c of t){let n=l+c;if(ctx.measureText(n).width>w){ctx.fillText(l,x,y);y+=h;l=c}else l=n}if(l)ctx.fillText(l,x,y)};
-  wrap(desc,30,280,340);
-  ctx.textAlign='center';ctx.fillStyle='#b0a090';ctx.font='12px sans-serif';ctx.fillText('灵客星球 · 想自己搭这种测试？扫码聊',200,650);
-  const link=document.createElement('a');
-  link.download='ENFP挑战结果.png';
-  link.href=c.toDataURL('image/png');
-  link.click();
+function brand(){
+  return `<div class="brand"><div><div class="bn">灵 客 星 球</div><div class="bs">想自己搭这种测试？扫码聊聊</div></div></div>`;
 }
+
+function cap(){
+  const b=document.querySelector('.btn1');
+  if(b){b.textContent='✅ 截图保存，快去发朋友圈吧！';b.style.background='#2ecc71'}
+}
+
+home();
 </script>
 </body>
 </html>
