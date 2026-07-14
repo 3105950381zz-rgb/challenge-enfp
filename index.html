@@ -10,9 +10,9 @@
 body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0f0f0f;color:#f0ece4;min-height:100vh;overflow-x:hidden}
 
 /* Animated bg */
-.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 30% 20%,rgba(244,162,97,.06),transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(224,122,95,.04),transparent 50%),#0f0f0f}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 30% 20%,rgba(254,202,87,.08),transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(224,122,95,.04),transparent 50%),#0f0f0f}
 .particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
-.p{position:absolute;width:2px;height:2px;background:rgba(244,162,97,.2);border-radius:50%;animation:drift linear infinite}
+.p{position:absolute;width:2px;height:2px;background:rgba(254,202,87,.2);border-radius:50%;animation:drift linear infinite}
 @keyframes drift{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) scale(1);opacity:0}}
 
 /* Screen shake */
@@ -23,8 +23,8 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0f0f0f;c
 
 /* ===== HEADER ===== */
 .hd{text-align:center;padding:32px 20px 20px;position:relative}
-.hd-badge{display:inline-block;padding:3px 12px;border-radius:6px;font-size:10px;font-weight:600;background:rgba(244,162,97,.1);color:#f4a261;letter-spacing:1px;margin-bottom:10px;border:1px solid rgba(244,162,97,.15)}
-.hd h1{font-size:28px;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,#f0ece4,#f4a261);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hd-badge{display:inline-block;padding:3px 12px;border-radius:6px;font-size:10px;font-weight:600;background:rgba(244,162,97,.1);color:#feca57;letter-spacing:1px;margin-bottom:10px;border:1px solid rgba(244,162,97,.15)}
+.hd h1{font-size:28px;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,#f0ece4,#feca57);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hd p{font-size:12px;color:rgba(240,236,228,.3);margin-top:6px}
 
 .ct{max-width:480px;margin:0 auto;padding:0 14px 30px}
@@ -41,14 +41,14 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0f0f0f;c
 /* ===== BUTTON ===== */
 .btn{width:100%;padding:14px;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
 .btn:active{transform:scale(.97)}
-.btn-primary{background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;box-shadow:0 4px 20px rgba(244,162,97,.2)}
+.btn-primary{background:linear-gradient(135deg,#feca57,#ff9ff3);color:#fff;box-shadow:0 4px 20px rgba(254,202,87,.2)}
 .btn-primary:hover{box-shadow:0 6px 28px rgba(244,162,97,.3)}
 .btn-second{background:rgba(255,255,255,.03);color:rgba(240,236,228,.4);border:1px solid rgba(255,255,255,.06)}
 .btn-danger{background:linear-gradient(135deg,#e94560,#c23152);color:#fff}
 
 /* ===== CARD ===== */
 .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:20px;margin-bottom:10px;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#f4a261,transparent);opacity:.5}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#feca57,transparent);opacity:.5}
 
 /* HP BAR */
 .hp-bar{display:flex;align-items:center;gap:10px;margin-bottom:14px}
@@ -71,10 +71,10 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0f0f0f;c
 /* OPTIONS */
 .opts{display:flex;flex-direction:column;gap:7px}
 .opt{width:100%;padding:13px 14px;border:1px solid rgba(255,255,255,.06);border-radius:10px;background:rgba(255,255,255,.02);font-size:13px;color:#f0ece4;cursor:pointer;text-align:left;font-family:inherit;transition:all .2s;line-height:1.4}
-.opt:hover{border-color:rgba(244,162,97,.2);background:rgba(244,162,97,.04)}
+.opt:hover{border-color:rgba(254,202,87,.2);background:rgba(254,202,87,.04)}
 .opt:active{transform:scale(.97)}
 .opt .il{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:8px;font-size:10px;font-weight:700;margin-right:10px;color:#fff}
-.opt .s1{background:#f4a261}.opt .s2{background:#e07a5f}.opt .s3{background:#d4af37}.opt .s4{background:#8ecae6}
+.opt .s1{background:#feca57}.opt .s2{background:#ff9ff3}.opt .s3{background:#d4af37}.opt .s4{background:#8ecae6}
 
 .opt.wrong{animation:shake .5s;border-color:#e94560;background:rgba(233,69,96,.08)!important}
 .opt.right{border-color:#4caf50;background:rgba(76,175,80,.08)!important}
@@ -90,8 +90,8 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0f0f0f;c
 
 /* ===== WIN ===== */
 .win-icon{font-size:72px;margin-bottom:10px;display:block}
-.win-title{font-size:24px;font-weight:800;color:#f4a261;margin-bottom:4px}
-.win-desc{font-size:13px;color:rgba(240,236,228,.4);line-height:1.8;padding:16px;background:rgba(244,162,97,.04);border-radius:12px;margin-bottom:16px;border-left:2px solid #f4a261}
+.win-title{font-size:24px;font-weight:800;color:#feca57;margin-bottom:4px}
+.win-desc{font-size:13px;color:rgba(240,236,228,.4);line-height:1.8;padding:16px;background:rgba(254,202,87,.04);border-radius:12px;margin-bottom:16px;border-left:2px solid #feca57}
 .win-stats{display:flex;gap:10px;justify-content:center;margin-bottom:16px}
 .win-stats span{padding:6px 14px;border-radius:8px;font-size:12px}
 .win-stats .s{background:rgba(76,175,80,.1);color:#66bb6a}
@@ -127,7 +127,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0f0f0f;c
 const DATA={
   emoji:'🐶',title:'ENFP',subtitle:'热情自由的追梦者',
   desc:'ENFP 曾经很亮，但热情不是无限电池。被困住、被敷衍、被降温，都会让 TA 突然转身。',
-  color:'#f4a261'
+  color:'#feca57'
 };
 
 const STAGES=[
