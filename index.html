@@ -3,175 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0a0a0a">
 <title>挽回 ENFP 挑战</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#faf6ef;color:#14110f;-webkit-font-smoothing:antialiased;min-height:100vh;padding-bottom:40px}
-
-.page-bg{position:fixed;inset:0;z-index:-1;background:#faf6ef;background-image:radial-gradient(circle at 20% 12%,rgba(255,207,111,0.25),transparent 26rem),radial-gradient(circle at 82% 4%,rgba(255,180,50,0.15),transparent 22rem)}
-.app{width:min(100%,520px);min-height:100vh;margin:0 auto;padding:max(12px,env(safe-area-inset-top)) 16px max(18px,env(safe-area-inset-bottom));position:relative}
-
-.topbar{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#9a8a78;padding:4px 0 8px}
-.topbar span{background:rgba(255,255,255,.8);border:1px solid rgba(20,17,15,.1);border-radius:999px;padding:4px 10px}
-
-.hero{background:linear-gradient(145deg,#fffcf7,#fdf3e0);border:1px solid rgba(20,17,15,.12);border-radius:12px;min-height:180px;margin:8px 0 16px;position:relative;overflow:hidden;box-shadow:0 18px 42px rgba(63,35,18,.08)}
-.hero-inner{position:absolute;inset:16px;border:1px dashed rgba(20,17,15,.15);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
-.hero-emoji{font-size:48px;margin-bottom:8px}
-.hero-title{font-size:20px;font-weight:700;color:#c27a1a}
-.hero-sub{font-size:13px;color:#6a5a48;margin-top:4px;text-align:center;line-height:1.6;padding:0 10px}
-.hero-intro{font-size:12px;color:#9a8a78;margin-top:6px;text-align:center;line-height:1.7;padding:0 10px}
-.hero-stats{display:flex;gap:16px;margin-top:10px;font-size:11px;color:#9a8a78}
-.hero-stats span{padding:2px 10px;background:rgba(255,255,255,.6);border-radius:20px}
-
-.card{background:#fffcf7;border:1px solid rgba(20,17,15,.08);border-radius:12px;padding:20px;margin-bottom:10px;box-shadow:0 4px 16px rgba(63,35,18,.04)}
-.lv-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.lv-badge{background:#ffcf6f20;color:#c27a1a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px}
-.lv-death{font-size:11px;color:#c0392b}
-.lv-scene{font-size:14px;color:#6a5a48;line-height:1.7;margin-bottom:14px;padding:12px;background:rgba(255,207,111,.06);border-radius:8px;border-left:3px solid #ffcf6f}
-.lv-line{font-size:16px;font-weight:600;color:#14110f;margin-bottom:16px;padding:10px 14px;background:#faf6ef;border-radius:8px;text-align:center}
-
-.opts{display:flex;flex-direction:column;gap:8px}
-.opt{width:100%;padding:13px 14px;border:1px solid rgba(20,17,15,.08);border-radius:8px;background:#fffcf7;font-size:13px;color:#14110f;cursor:pointer;text-align:left;font-family:inherit;transition:all .15s;line-height:1.5}
-.opt:active{transform:scale(.97);border-color:#f4a261}
-.opt .lb{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;color:#fff;font-size:11px;font-weight:700;margin-right:10px}
-.opt .lb1{background:#f4a261}.opt .lb2{background:#e07a5f}.opt .lb3{background:#d4af37}.opt .lb4{background:#8ecae6}
-.opt.go{text-align:center;padding:16px;font-weight:700;font-size:15px;border-color:#f4a261}
-
-.r-emoji{font-size:56px;margin-bottom:4px;text-align:center}
-.r-title{font-size:22px;font-weight:800;color:#c27a1a;text-align:center}
-.r-sub{font-size:13px;color:#6a5a48;text-align:center;margin-top:4px}
-.r-badge{display:inline-block;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;margin:10px auto;text-align:center;width:auto}
-.r-desc{font-size:13px;color:#555;line-height:1.8;padding:16px;background:rgba(255,207,111,.06);border-radius:12px;margin-bottom:12px}
-.sbar{height:6px;border-radius:3px;background:rgba(20,17,15,.06);overflow:hidden;margin:6px 0}
-.sfill{height:100%;border-radius:3px;transition:width .8s ease}
-
-.acts{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-.acts button{width:100%;padding:14px;border-radius:10px;border:none;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
-.acts button:active{transform:scale(.97)}
-.btn1{background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;box-shadow:0 4px 14px rgba(224,122,95,.2)}
-.btn2{background:transparent;color:#9a8a78;border:1px solid rgba(20,17,15,.08)!important}
-
-.brand{display:flex;align-items:center;gap:12px;padding:14px;margin-top:8px;border-radius:10px;background:rgba(255,255,255,.5);border:1px solid rgba(20,17,15,.06)}
-.brand img{width:48px;height:auto;border-radius:6px;flex-shrink:0}
-.brand .bn{font-size:13px;font-weight:700;color:#14110f}
-.brand .bs{font-size:11px;color:#9a8a78;margin-top:2px}
-.ft{font-size:10px;color:#c0b0a0;text-align:center;margin-top:16px;line-height:1.6}
+body{font-family:PingFang SC,Microsoft YaHei,sans-serif;background:#faf6ef;color:#14110f;min-height:100vh;padding-bottom:30px}
+.pg{position:fixed;inset:0;z-index:-1;background:#faf6ef;background-image:radial-gradient(circle at 20% 12%,rgba(255,207,111,0.25),transparent 26rem),radial-gradient(circle at 82% 4%,rgba(255,180,50,0.15),transparent 22rem)}
+.ap{width:min(100%,520px);min-height:100vh;margin:0 auto;padding:12px 16px;position:relative}
+.tb{display:flex;justify-content:space-between;font-size:11px;color:#9a8a78;padding:4px 0 8px}
+.tb span{background:rgba(255,255,255,.8);border:1px solid rgba(20,17,15,.1);border-radius:999px;padding:4px 10px}
+.he{background:linear-gradient(145deg,#fffcf7,#fdf3e0);border:1px solid rgba(20,17,15,.12);border-radius:12px;min-height:170px;margin:8px 0 14px;position:relative;overflow:hidden;box-shadow:0 18px 42px rgba(63,35,18,.08)}
+.hi{position:absolute;inset:14px;border:1px dashed rgba(20,17,15,.15);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.h2{font-size:44px;margin-bottom:6px}.h3{font-size:19px;font-weight:700;color:#c27a1a;text-align:center}
+.h4{font-size:12px;color:#6a5a48;margin-top:4px;text-align:center;line-height:1.6;padding:0 8px}
+.h5{font-size:11px;color:#9a8a78;margin-top:6px;text-align:center;line-height:1.6;padding:0 8px}
+.h6{display:flex;gap:14px;margin-top:8px;font-size:11px;color:#9a8a78}
+.h6 span{padding:2px 10px;background:rgba(255,255,255,.6);border-radius:20px}
+.ca{background:#fffcf7;border:1px solid rgba(20,17,15,.08);border-radius:12px;padding:18px;margin-bottom:10px;box-shadow:0 4px 16px rgba(63,35,18,.04)}
+.la{display:flex;justify-content:space-between;margin-bottom:8px}
+.lb2{background:#ffcf6f20;color:#c27a1a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px}
+.ld2{font-size:11px;color:#c0392b}
+.ls2{font-size:14px;color:#6a5a48;line-height:1.7;margin-bottom:12px;padding:10px 12px;background:rgba(255,207,111,.06);border-radius:8px;border-left:3px solid #ffcf6f}
+.ll2{font-size:15px;font-weight:600;margin-bottom:14px;padding:10px;background:#faf6ef;border-radius:8px;text-align:center}
+.op{display:flex;flex-direction:column;gap:7px}
+.bt{width:100%;padding:12px;border:1px solid rgba(20,17,15,.08);border-radius:8px;background:#fffcf7;font-size:13px;color:#14110f;cursor:pointer;text-align:left;transition:all .15s;line-height:1.4}
+.bt:active{transform:scale(.97);border-color:#f4a261}
+.bt .il2{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;color:#fff;font-size:10px;font-weight:700;margin-right:8px}
+.bt .b1{background:#f4a261}.bt .b2{background:#e07a5f}.bt .b3{background:#d4af37}.bt .b4{background:#8ecae6}
+.re2{font-size:52px;text-align:center;margin-bottom:4px}.rt2{font-size:20px;font-weight:800;color:#c27a1a;text-align:center}
+.rs{font-size:12px;color:#6a5a48;text-align:center;margin-top:3px}
+.rb2{display:inline-block;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;margin:8px auto;text-align:center}
+.rd2{font-size:13px;color:#555;line-height:1.8;padding:14px;background:rgba(255,207,111,.06);border-radius:12px;margin-bottom:10px}
+.sb2{height:5px;border-radius:3px;background:rgba(20,17,15,.06);overflow:hidden;margin:6px 0}
+.sf2{height:100%;border-radius:3px;transition:width .8s}
+.ac2{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.ac2 button{width:100%;padding:13px;border-radius:10px;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s}
+.ac2 button:active{transform:scale(.97)}
+.bp2{background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;box-shadow:0 4px 14px rgba(224,122,95,.2)}
+.bss{background:transparent;color:#9a8a78;border:1px solid rgba(20,17,15,.08)}
+.br2{display:flex;align-items:center;gap:10px;padding:12px;margin-top:6px;border-radius:10px;background:rgba(255,255,255,.5);border:1px solid rgba(20,17,15,.06)}
+.br2 img{width:44px;height:auto;border-radius:6px;flex-shrink:0}
+.br2 .bn2{font-size:13px;font-weight:700;color:#14110f}
+.br2 .bs3{font-size:11px;color:#9a8a78;margin-top:1px}
+.ft2{font-size:10px;color:#c0b0a0;text-align:center;margin-top:14px;line-height:1.6}
 </style>
-</head>
-<body>
-<div class="page-bg"></div>
-<div class="app" id="app"></div>
-
+</head><body>
+<div class="pg"></div>
+<div class="ap" id="ap"></div>
 <script>
-const D={emoji:'🐶',title:'挽回 ENFP 挑战',subtitle:'你能挽回那个热烈但已经失望的人吗？',intro:'ENFP 曾经很亮，但热情不是无限电池。被困住、被敷衍、被降温，都会让 TA 突然转身。',accent:'#ffcf6f',danger:'热烈逃逸',passRate:'0.9%',averageDeath:'第3关',globalBase:389520};
-
-const STAGES=[
-  {t:'没关系',s:'TA 盯着屏幕很久，只回了三个字。',l:'没关系。',d:21},
-  {t:'开始变冷',s:'消息越来越短。以前会讲细节，现在只剩表情和句号。',l:'嗯。知道了。',d:63},
-  {t:'我最近很累',s:'TA 没有指责你，只是把自己往后收了一点。',l:'我最近很累。',d:58},
-  {t:'不再分享',s:'你刷到 TA 的动态，才知道那些生活已经不再先告诉你。',l:'也没什么好说的。',d:66},
-  {t:'开始礼貌',s:'TA 的语气突然变得周到、客气、无懈可击。',l:'谢谢你，真的。',d:72},
-  {t:'你是个很好的人',s:'死亡高发区。很多人在这里误以为还有机会。',l:'你是个很好的人。',d:85},
-  {t:'我们就到这里吧',s:'没有崩溃，没有拉扯，只是把门轻轻关上。',l:'我们就到这里吧。',d:91},
-  {t:'你值得更好的',s:'你输入又删除。删到最后，只剩一句看似体面的话。',l:'你值得更好的。',d:94}
-];
-
-const OPTS=[
-  [{x:'a',t:'先让TA冷静几天，等TA主动找你',s:'f'},{x:'b',t:'每天发一条日常，让TA知道你在但不过界',s:'s'},{x:'c',t:'直接打电话问清楚到底怎么了',s:'f'},{x:'d',t:'写一段小作文道歉加表白',s:'f'}],
-  [{x:'a',t:'照常分享一件小事，但不追问',s:'s'},{x:'b',t:'问TA是不是不爱了，想要句准话',s:'f'},{x:'c',t:'也减少回复，让TA感受下被冷落',s:'f'},{x:'d',t:'约TA出来当面聊聊',s:'s'}],
-  [{x:'a',t:'问TA最近是不是压力很大，说陪TA',s:'s'},{x:'b',t:'说我也很累，但问题得说清楚',s:'f'},{x:'c',t:'想办法逗TA开心，转移注意力',s:'s'},{x:'d',t:'不打扰，等TA自己恢复',s:'f'}],
-  [{x:'a',t:'假装没看到，但默默关注TA动态',s:'f'},{x:'b',t:'在TA动态下正常互动，不刻意',s:'s'},{x:'c',t:'问TA最近是不是不想理我了',s:'f'},{x:'d',t:'也发精彩生活，让TA看到你很好',s:'f'}],
-  [{x:'a',t:'直接问"你对我是不是有意见"',s:'f'},{x:'b',t:'用同样客气的方式回应TA',s:'f'},{x:'c',t:'用关心的方式戳破这层客气',s:'s'},{x:'d',t:'反思自己最近是不是忽略了TA',s:'s'}],
-  [{x:'a',t:'说我也觉得自己不够好但我会改',s:'s'},{x:'b',t:'说你别这样，我哪里不好你说',s:'f'},{x:'c',t:'说也许吧，但我还是不想放弃',s:'s'},{x:'d',t:'沉默，慢慢退出TA的生活',s:'f'}],
-  [{x:'a',t:'好的，那我等你',s:'s'},{x:'b',t:'为什么？我做错什么了你说清楚',s:'f'},{x:'c',t:'我不同意，我们重新开始好不好',s:'f'},{x:'d',t:'那我走了，你要好好的',s:'s'}],
-  [{x:'a',t:'也许吧。但谢谢你，真的。',s:'s'},{x:'b',t:'不，你值得更好的，但那个人是我',s:'f'},{x:'c',t:'哭着说我对你真的很重要',s:'f'},{x:'d',t:'我听见了。但我会继续往前走。',s:'s'}]
-];
-
-const R=[{e:'🎯',ti:'完美通关',su:'你是万里挑一的那个',ta:'🌟 天选之人',mi:6,c:'#f4a261',
-  de:'你完全读懂了ENFP。你知道什么时候该靠近，什么时候该给空间。ENFP 的热情不是无限电池，但你让他们觉得——你是值得充电的那个人。不是因为你多会说话，而是因为你真的看见了TA。'},
-  {e:'😊',ti:'表现不错',su:'你已经超过大多数人了',ta:'✅ 高分通关',mi:4,c:'#8ecae6',
-  de:'你本能地做出了很多正确的选择。虽然偶尔踩雷，但你懂得ENFP 最在意什么——被看见、被理解、被温柔对待。只要再少一点自我怀疑，ENFP 会回头的。'},
-  {e:'😅',ti:'有点危险',su:'大部分人和你一样',ta:'⚠️ 止步中段',mi:2,c:'#f39c12',
-  de:'你在一些关键选择上踩了ENFP 的雷。ENFP 最怕的不是吵架，是被敷衍、被冷落、被当成理所当然。你还需学会在TA沉默时不要逼问，在TA撤退时不要追击。'},
-  {e:'💔',ti:'挑战失败',su:'ENFP 已经转身',ta:'❌ 需再努力',mi:0,c:'#e74c3c',
-  de:'ENFP 的热情熄灭了。TA 不需要完美的伴侣，需要的是一个在TA发光时不遮挡、在TA暗淡时不离开的人。建议你好好了解ENFP，下次再来挑战。'}];
-
-let cur=0,sc=0,sa=0,fa=0;
-const A=document.getElementById('app');
-
-function home(){
-  A.innerHTML=`<div class="topbar"><span>挽回挑战</span><span>${D.danger}</span></div>
-    <div class="hero"><div class="hero-inner">
-      <div class="hero-emoji">${D.emoji}</div>
-      <div class="hero-title">${D.title}</div>
-      <div class="hero-sub">${D.subtitle}</div>
-      <div class="hero-intro">${D.intro}</div>
-      <div class="hero-stats"><span>🔥 通关率 ${D.passRate}</span><span>💀 平均止步 ${D.averageDeath}</span></div>
-    </div></div>
-    <button class="opt go" onclick="go()"><span class="lb lb1">▶</span> 开始挑战</button>
-    <div style="margin-top:12px">${brand()}</div>
-    <div class="ft">共 ${STAGES.length} 关 · 每关 4 个选择</div>`;
-}
-
-function go(){
-  cur=0;sc=0;sa=0;fa=0;A.innerHTML=level();
-}
-
-function level(){
-  if(cur>=STAGES.length)return res();
-  const s=STAGES[cur],o=OPTS[cur]||[],lbs=['lb1','lb2','lb3','lb4'];
-  return `<div class="topbar"><span>挽回 ENFP · 第${cur+1}/${STAGES.length}关</span><span>💀 失败率${s.d}%</span></div>
-    <div class="card">
-      <div class="lv-hd"><span class="lv-badge">⚠️ 关卡${cur+1}：${s.t}</span><span class="lv-death">💀 ${s.d}%止步</span></div>
-      <div class="lv-scene">${s.s}</div>
-      <div class="lv-line">"${s.l}"</div>
-      <div class="opts">${o.map((p,i)=>`<button class="opt" onclick="pick(${i})"><span class="lb ${lbs[i]}">${'ABCD'[i]}</span>${p.t}</button>`).join('')}</div>
-    </div>`;
-}
-
-function pick(i){
-  const o=OPTS[cur][i];
-  if(o.s==='s'){sc+=3;sa++}else sc+=1,fa++;
-  cur++;A.innerHTML=cur>=STAGES.length?res():level();
-}
-
-function res(){
-  const r=R.find(x=>sa>=x.mi)||R[R.length-1];
-  return `<div class="topbar"><span>挑战完成</span><span>得分${sc}/${STAGES.length*3}</span></div>
-    <div class="card" style="text-align:center">
-      <div class="r-emoji">${r.e}</div>
-      <div class="r-title">${r.ti}</div>
-      <div class="r-sub">${r.su}</div>
-      <div class="r-badge" style="background:${r.c}20;color:${r.c}">${r.ta}</div>
-    </div>
-    <div class="card">
-      <div class="r-desc">${r.de}</div>
-      <div style="font-size:12px;color:#9a8a78;margin-bottom:4px">安全选择比例</div>
-      <div class="sbar"><div class="sfill" style="width:${(sa/STAGES.length)*100}%;background:${r.c}"></div></div>
-      <div style="display:flex;justify-content:space-between;font-size:11px;color:#9a8a78;margin-top:12px">
-        <span>🌍 ${(D.globalBase/10000).toFixed(1)}万人挑战过</span>
-        <span>${sa}✅ ${fa}💀</span>
-      </div>
-    </div>
-    <div class="acts">
-      <button class="btn1" onclick="cap()">📸 截图发朋友圈</button>
-      <button class="btn2" onclick="home()">🔄 重新挑战</button>
-    </div>
-    ${brand()}
-    <div class="ft">仅供娱乐 · 不构成人格建议<br>想自己搭这种测试？扫码找灵客星球</div>`;
-}
-
-function brand(){
-  return `<div class="brand"><div><div class="bn">灵 客 星 球</div><div class="bs">想自己搭这种测试？扫码聊聊</div></div></div>`;
-}
-
-function cap(){
-  const b=document.querySelector('.btn1');
-  if(b){b.textContent='✅ 截图保存，快去发朋友圈吧！';b.style.background='#2ecc71'}
-}
-
-home();
+var D={e:"🐶",t:"挽回 ENFP 挑战",s:"你能挽回那个热烈但已经失望的人吗？",i:"ENFP曾经很亮，但热情不是无限电池。被困住被敷衍被降温，都会让TA突然转身。",n:"热烈逃逸",pr:"0.9%",ad:"第3关",gb:389520};
+var S=[{t:"没关系",s:"TA盯着屏幕很久，只回了三个字。",l:"没关系。",d:21},{t:"开始变冷",s:"消息越来越短。以前会讲细节，现在只剩表情和句号。",l:"嗯。知道了。",d:63},{t:"我最近很累",s:"TA没有指责你，只是把自己往后收了一点。",l:"我最近很累。",d:58},{t:"不再分享",s:"你刷到TA的动态，才知道那些生活已经不再先告诉你。",l:"也没什么好说的。",d:66},{t:"开始礼貌",s:"TA的语气变得周到客气无懈可击。",l:"谢谢你，真的。",d:72},{t:"你是个很好的人",s:"死亡高发区。很多人在这里误以为还有机会。",l:"你是个很好的人。",d:85},{t:"我们就到这里吧",s:"没有崩溃没有拉扯，只是把门轻轻关上。",l:"我们就到这里吧。",d:91},{t:"你值得更好的",s:"你输入又删除，删到最后只剩一句体面的话。",l:"你值得更好的。",d:94},{t:"别再联系了",s:"TA语气变得果断不再留余地。",l:"别再联系我了。",d:96},{t:"我已经放下了",s:"你听到消息，心里那根线啪地断了。",l:"我已经放下了。",d:97},{t:"你别再打听了",s:"共同朋友告诉你TA不想再提到你。",l:"你别再打听我的生活了。",d:98},{t:"最后一扇门",s:"最后一扇没有上锁的门。",l:"还记得我们第一次见面吗？",d:99}];
+var O=[[{x:"a",t:"让TA冷静几天等TA主动",s:"f"},{x:"b",t:"发日常让TA知道你在",s:"s"},{x:"c",t:"直接打电话问清楚",s:"f"},{x:"d",t:"写小作文道歉表白",s:"f"}],[{x:"a",t:"照常分享小事不追问",s:"s"},{x:"b",t:"问是不是不爱了要准话",s:"f"},{x:"c",t:"也减少回复让TA感受",s:"f"},{x:"d",t:"约TA出来当面聊",s:"s"}],[{x:"a",t:"问最近压力大吗陪你",s:"s"},{x:"b",t:"说我也累但得说清楚",s:"f"},{x:"c",t:"逗TA开心转移注意",s:"s"},{x:"d",t:"不打扰等TA自己恢复",s:"f"}],[{x:"a",t:"假装没看到默默关注",s:"f"},{x:"b",t:"在TA动态下正常互动",s:"s"},{x:"c",t:"问是不是不想理我了",s:"f"},{x:"d",t:"也发精彩生活让TA看",s:"f"}],[{x:"a",t:"直接问对我有意见吗",s:"f"},{x:"b",t:"同样客气方式回应",s:"f"},{x:"c",t:"用关心戳破这层客气",s:"s"},{x:"d",t:"反思是不是忽略TA了",s:"s"}],[{x:"a",t:"说我不够好但会改",s:"s"},{x:"b",t:"说我哪不好你说啊",s:"f"},{x:"c",t:"也许吧但不想放弃",s:"s"},{x:"d",t:"沉默慢慢退出TA生活",s:"f"}],[{x:"a",t:"好的那我等你",s:"s"},{x:"b",t:"为什么我做错什么说",s:"f"},{x:"c",t:"我不同意重新开始",s:"f"},{x:"d",t:"那我走了你要好好的",s:"s"}],[{x:"a",t:"也许吧但谢谢你真的",s:"s"},{x:"b",t:"你值得更好的但那个人是我",s:"f"},{x:"c",t:"哭着说对你很重要",s:"f"},{x:"d",t:"我听见了但会继续走",s:"s"}],[{x:"a",t:"我听见了但我也变了",s:"s"},{x:"b",t:"你没放下你在逃避",s:"f"},{x:"c",t:"那就好祝你幸福",s:"s"},{x:"d",t:"我不信你看着我说",s:"f"}],[{x:"a",t:"好不打听了有事找我",s:"s"},{x:"b",t:"你怎么这么绝情",s:"f"},{x:"c",t:"我明白了对不起",s:"s"},{x:"d",t:"别听朋友乱说",s:"f"}],[{x:"a",t:"我记得那天你穿白色",s:"s"},{x:"b",t:"当然记得怎么了",s:"f"},{x:"c",t:"想重新认识你一次",s:"s"},{x:"d",t:"别这样我难受",s:"f"}],[{x:"a",t:"我想听你亲口说",s:"s"},{x:"b",t:"你是不是有别人了",s:"f"},{x:"c",t:"好我尊重你的决定",s:"s"},{x:"d",t:"我不信你在气我而已",s:"f"}]];
+var R=[{e:"🎯",ti:"完美通关",su:"万里挑一",ta:"🌟天选之人",mi:9,c:"#f4a261",de:"你完全读懂了ENFP。你知道什么时候该靠近什么时候该给空间。不是因为你多会说话而是因为你真的看见了TA。"},{e:"😊",ti:"表现不错",su:"超过大多数人",ta:"✅高分通关",mi:6,c:"#8ecae6",de:"你本能地做出了很多正确选择。虽然偶尔踩雷但你懂ENFP最在意的——被看见被理解。"},{e:"😅",ti:"有点危险",su:"和大部分人一样",ta:"⚠️止步中段",mi:3,c:"#f39c12",de:"一些关键选择踩了ENFP的雷。他们最怕被敷衍被冷落。需学会在TA沉默时不要逼问。"},{e:"💔",ti:"挑战失败",su:"ENFP已经转身",ta:"❌再努力",mi:0,c:"#e74c3c",de:"ENFP的热情熄灭了。TA需要的是一个发光时不遮挡暗淡时不离开的人。"}];
+var cu=0,s1=0,s2=0,f2=0;
+var A=document.getElementById("ap");
+function hm(){A.innerHTML="<div class=\"tb\"><span>挽回挑战</span><span>"+D.n+"</span></div><div class=\"he\"><div class=\"hi\"><div class=\"h2\">"+D.e+"</div><div class=\"h3\">"+D.t+"</div><div class=\"h4\">"+D.s+"</div><div class=\"h5\">"+D.i+"</div><div class=\"h6\"><span>🔥"+D.pr+"通关</span><span>💀平均"+D.ad+"</span></div></div></div><button class=\"bt\" onclick=\"go()\" style=\"text-align:center;padding:14px;font-weight:700;border-color:#f4a261\"><span class=\"il2 b1\">▶</span>开始挑战</button><div style=\"margin-top:12px\">"+br()+"</div><div class=\"ft2\">共"+S.length+"关·每关4个选择</div>";}
+function go(){cu=0;s1=0;s2=0;f2=0;A.innerHTML=lv();}
+function lv(){if(cu>=S.length)return re();var s=S[cu],o=O[cu]||[],bs=["b1","b2","b3","b4"];return "<div class=\"tb\"><span>挽回ENFP·第"+(cu+1)+"/"+S.length+"关</span><span>💀失败率"+s.d+"%</span></div><div class=\"ca\"><div class=\"la\"><span class=\"lb2\">⚠️关卡"+(cu+1)+"："+s.t+"</span><span class=\"ld2\">💀"+s.d+"%止步</span></div><div class=\"ls2\">"+s.s+"</div><div class=\"ll2\">\""+s.l+"\"</div><div class=\"op\">"+o.map(function(p,i){return "<button class=\"bt\" onclick=\"pk("+i+")\"><span class=\"il2 "+bs[i]+"\">"+"ABCD"[i]+"</span>"+p.t+"</button>";}).join("")+"</div></div>";}
+function pk(i){var o=O[cu][i];if(o.s==="s"){s1+=3;s2++}else{s1+=1;f2++}cu++;A.innerHTML=cu>=S.length?re():lv();}
+function re(){var r=R.find(function(x){return s2>=x.mi;})||R[R.length-1];return "<div class=\"tb\"><span>挑战完成</span><span>得分"+s1+"</span></div><div class=\"ca\" style=\"text-align:center\"><div class=\"re2\">"+r.e+"</div><div class=\"rt2\">"+r.ti+"</div><div class=\"rs\">"+r.su+"</div><div class=\"rb2\" style=\"background:"+r.c+"20;color:"+r.c+"\">"+r.ta+"</div></div><div class=\"ca\"><div class=\"rd2\">"+r.de+"</div><div style=\"font-size:12px;color:#9a8a78;margin-bottom:4px\">安全选择比例</div><div class=\"sb2\"><div class=\"sf2\" style=\"width:"+(s2/S.length*100)+"%;background:"+r.c+"\"></div></div><div style=\"display:flex;justify-content:space-between;font-size:11px;color:#9a8a78;margin-top:10px\"><span>🌍"+(D.gb/10000).toFixed(1)+"万人挑战</span><span>"+s2+"✅"+f2+"💀</span></div></div><div class=\"ac2\"><button class=\"bp2\" onclick=\"cap()\">📸截图发朋友圈</button><button class=\"bss\" onclick=\"hm()\">🔄重新挑战</button></div>"+br()+"<div class=\"ft2\">仅供娱乐·不构成人格建议<br>想自己搭这种测试？扫码找灵客星球</div>";}
+function br(){return "<div class=\"br2\"><img src=\"qrcode.jpg?v=1\"/><div><div class=\"bn2\">灵客星球</div><div class=\"bs3\">想自己搭这种测试？扫码聊聊</div></div></div>";}
+function cap(){var b=document.querySelector(".bp2");if(b){b.textContent="✅截图已保存快去发朋友圈吧！";b.style.background="#2ecc71";}}
+hm();
 </script>
 </body>
 </html>
