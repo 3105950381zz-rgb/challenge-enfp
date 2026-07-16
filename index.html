@@ -147,7 +147,7 @@ const DATA={
 
 // ===== URL param detection for shared results =====
 (function(){
-  var m=window.location.href.match(/[?&]s=(d+)-([d.]+)/);
+  var m=window.location.href.match(/[?&]s=(\d+)-([\d.]+)/);
   if(!m)return;
   var lvl=parseInt(m[1]),pct=parseFloat(m[2]);
   var A=document.getElementById("app");
